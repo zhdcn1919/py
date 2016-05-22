@@ -21,6 +21,7 @@ def main():
     time = re.findall(u'"创建时间">(.*?)</span>',tieba.text,re.S)
     link = re.findall(r'<a href="/p/(.*?)" title="',tieba.text,re.S)
 
+    # 把用户名中含有字符串的字符长度减半。
     def bgetlen(n):
         str_cut = re.findall('[0-9a-zA-Z_]',n,re.S)
         str2 = len(str_cut)/2
@@ -28,7 +29,8 @@ def main():
         return alen
 
     for (c,a,l,t) in zip(time,author,link,title):
-        a = a.replace("℡","℡ ")
+        a = a.replace("℡","℡ ") # 把℡ 替换成℡  。
+        a = a.replace(".","。")
         l = 'http://tieba.baidu.com/p/'+l
         if(bgetlen(a)<4):
             print c+'\t'+a+'    \t'+l+'\t'+t
