@@ -32,7 +32,9 @@ def main():
         a = a.replace("℡","℡ ") # 把℡ 替换成℡  。
         a = a.replace(".","。")
         l = 'http://tieba.baidu.com/p/'+l
-        if(bgetlen(a)<4):
+        if(bgetlen(a)<2):
+            print c+'\t'+a+' '+' '+'    \t'+l+'\t'+t
+        elif(bgetlen(a)<4):
             print c+'\t'+a+'    \t'+l+'\t'+t
         else:
             print c+'\t'+a+'\t'+l+'\t'+t
