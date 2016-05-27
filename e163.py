@@ -40,7 +40,7 @@ def Spider(url):
     myPage = requests.get(url).content.decode("gbk")
     # myPage = urllib2.urlopen(url).read().decode("gbk")
     myPageResults = Page_Info(myPage)
-    save_path = u"~/programming/163/网易新闻抓取"
+    save_path = u"/home/hades/163"
     filename = str(i)+"_"+u"新闻排行榜"
     StringListSave(save_path, filename, myPageResults)
     i += 1
