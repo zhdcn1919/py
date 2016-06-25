@@ -30,9 +30,9 @@ def main():
 
     for (c,a,l,t) in zip(time,author,link,title):
         a = a.replace("℡","℡ ") # 把℡ 替换成℡  。
-        a = a.replace(".","。")
+        a = a.replace("♂","♂ ")
         l = 'http://tieba.baidu.com/p/'+l
-        if(bgetlen(a)<2):
+        if(bgetlen(a)<=2):
             print c+'\t'+a+' '+' '+'    \t'+l+'\t'+t
         elif(bgetlen(a)<4):
             print c+'\t'+a+'    \t'+l+'\t'+t
