@@ -12,9 +12,9 @@ def main():
     #
     #print tieba.text
     #
-    #fr = open('src_tieba.txt','w')
-    #fr.write(tieba.text)
-    #fr.close()
+    fr = open('src_tieba.txt','w')
+    fr.write(tieba.text)
+    fr.close()
     #
     author = re.findall(u'主题作者: (.*?)"',tieba.text,re.S)
     title = re.findall('class="j_th_tit ">(.*?)</a>',tieba.text,re.S)
@@ -31,10 +31,13 @@ def main():
     for (c,a,l,t) in zip(time,author,link,title):
         a = a.replace("℡","℡ ") # 把℡ 替换成℡  。
         a = a.replace("♂","♂ ")
+        a = a.replace(".",". ")
         l = 'http://tieba.baidu.com/p/'+l
-        if(bgetlen(a)<=2):
+        if(bgetlen(a)==0):
+            print c+'\t'+'         '+'\t'+l+'\t'+t
+        elif(bgetlen(a)<=2):
             print c+'\t'+a+' '+' '+'    \t'+l+'\t'+t
-        elif(bgetlen(a)<4):
+        elif(bgetlen(a)<=4):
             print c+'\t'+a+'    \t'+l+'\t'+t
         else:
             print c+'\t'+a+'\t'+l+'\t'+t
