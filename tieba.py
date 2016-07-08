@@ -21,6 +21,7 @@ def main():
     time = re.findall(u'"创建时间">(.*?)</span>',tieba.text,re.S)
     link = re.findall(r'<a href="/p/(.*?)" title="',tieba.text,re.S)
 
+
     # 把用户名中含有字符串的字符长度减半。
     def bgetlen(n):
         str_cut = re.findall('[0-9a-zA-Z_]',n,re.S)
