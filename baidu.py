@@ -1,13 +1,5 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
-
-import re
-import requests
-
-url = 'http://www.baidu.com'
-html = requests.get(url)
-html.encoding = 'utf-8'
+import urllib.request
+response = urllib.request.urlopen('http://www.baidu.com')
+buff = response.read()
+html = buff.decode("utf8")
+print(html)
